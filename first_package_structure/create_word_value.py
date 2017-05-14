@@ -1,12 +1,12 @@
 import nltk
+import os
 import pickle
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("wordnet")
+
+
 
 
 def get_keywords_and_values(words):
@@ -15,6 +15,7 @@ def get_keywords_and_values(words):
 
     Currently words are ranked based on how often they occur. Keywords pf size two are and three are weighted to be higher the single keywords
     """
+
     d = {}
     triple_keyword_value = 5
     double_keyword_value = 3
@@ -42,6 +43,7 @@ def get_keywords_and_values(words):
 
 def get_lemitized_words_in_order(file_in):
     # We want to lemmatize words so that plurals etc. are counted as the same word
+
     lemmitizer = WordNetLemmatizer()
 
     lexicon = []
@@ -75,17 +77,16 @@ def save_words_and_values(file_in, save_file):
     pickle.dump(results, open(save_file, 'wb'))
 
 
-def main():
-    # number = eval(input("How many words do you want to get?"))
+def evaluate_file(file_in):
 
-    # file_in = input("Please input the file to create the list from")
-    file_in = "script.txt"
-    # save_file = input("Please input the save file name")
-    save_file = "test.pickle"
+    save_file = os.path.join(os.path.dirname(file_in), os.path.splitext(os.path.basename(file_in))[0]+".pickle")
     print("Calculating values from", file_in, " and saving list to ", save_file)
 
     save_words_and_values(file_in, save_file)
 
+def main():
+    file_in = input("Please input the file to create the list from")
+    evaluate_file(file_in)
 
 if __name__ == "__main__":
     main()
