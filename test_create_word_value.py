@@ -1,6 +1,8 @@
-import create_word_value as cwv
-import unittest
 import os
+import unittest
+
+from first_package_structure import create_word_value as cwv
+
 
 class TestTus(unittest.TestCase):
     fileName="testfile"
