@@ -4,12 +4,23 @@ Package Info
 To install diarmaidi2xpackage, clone this repository. Enter the I2X folder and run 'pip install .'. This will install
 the diarmaidi2xpackage, together with it's requirements.
 
-You can run tests by running 'python3 setup.py test'.
+You can run tests by running 'python3 setup.py test' from inside the I2X folder.
 
 To Use
 ------
+Open a python terminal. Import the package using 'import diarmaidi2xpackage as dp'.  you can then call the package
+commands by typing dp.<command>.
 
-import diarmaidi2xpackage gives you the following commands:
+To create a keyword-value dictionary run 'dp.create_words_and_values(file_in)'. This will create a dictionary of
+keywords and values.
+
+You can save this dictionary by running 'dp.save_words_and_values(file_in, save_file)', where file_in is the path to
+the file you want to analyse, and save_file is the path to the file you want to save the dictionary to.
+
+To get the top keywords, use run 'dp.top_values(dict_in, n)', where dict_in is the output of create_words_and_values,
+and n is the number of key-words to get. This will return a list of the top n keywords.
+
+To compare a set of keywords to a file, run 'dp.compare(keywords_in, file_in), where key-words is the list of
 
 create_words_and_values
 +++++++++++++++++++++++

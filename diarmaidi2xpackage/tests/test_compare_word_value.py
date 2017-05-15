@@ -32,10 +32,6 @@ class Test_compare_word_value(unittest.TestCase):
 
 
     def write_compare_file(self):
-        #
-        #Our words for this file are one (4), two(1), one one (6), one two(3), two one(3), one two one (5), two one one(5) and one one one(5). Total
-        #is 32, making expected result
-        # one: 4/32 , one two =3/32 , two =1/32 , and 0 for all others
 
         string_to_write = 'one two one one one'
 
@@ -49,8 +45,6 @@ class Test_compare_word_value(unittest.TestCase):
     def test_get_n_values(self):
 
         gotten = cw.get_top_values(self.file_name, 3)
-
-        #top values are 5,3 and 3.
 
         expected =['one two three','one two','two three']
 
@@ -72,6 +66,10 @@ class Test_compare_word_value(unittest.TestCase):
         self.assertEquals(expected,gotten)
 
     def test_compare_file_list(self):
+        #
+        # The keywords in this file are ['(one, 4.0)', '(two, 1.0)', '(one one ,6.0)', '(one two, 3.0)', '(two one, 3.0)', '(one two one, 5)', '(two one one, 5.0)' ,'(one one one, 5.0)]'
+        # Total is 32, making expected result
+        # one: 4/32 , one two =3/32 , two =1/32 , and 0 for all others
 
         words_in   =['one two three','one two','two three']
 
@@ -85,8 +83,6 @@ class Test_compare_word_value(unittest.TestCase):
         file_list = [self.compare_file]
 
         overall_values, file_values = cw.compare_file_list(words_in, file_list)
-
-        single_expected=Counter(single_expected)
 
         self.assertEquals(expected,overall_values)
 
@@ -109,10 +105,13 @@ class Test_compare_word_value(unittest.TestCase):
 
         overall_values, file_values = cw.compare_file_list(words_in, files)
 
+        os.remove("secondTestFile")
 
         self.assertEquals(overall_expected,overall_values)
 
         self.assertEquals(expected, file_values.get(self.compare_file))
+
+
 
 
 

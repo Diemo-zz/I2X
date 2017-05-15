@@ -2,6 +2,7 @@ import os
 import pickle
 from collections import Counter
 from operator import itemgetter
+from pprint import pprint as pp
 
 from diarmaidi2xpackage import create_words_and_values, save_words_and_values
 
@@ -104,6 +105,22 @@ def get_sorted_key_words(file_in):
     return sorted_words
 
 
+def get_top_n_values(dict_in, n):
+    """
+    Sort the dictionary created in create_keywords_and_values
+    
+    :param dict_in: dict
+        Dictionary you want to sort
+    :param n: integer
+        number of elements to return
+    :return: list
+        Sorted values
+    """
+    sorted_x = sorted(dict_in.items(), key=itemgetter(1), reverse=True)
+
+    sorted_words = list(map(itemgetter(0), sorted_x))
+    return sorted_words[0:n]
+
 def get_top_values(file_in, n):
     """
     Get the top n keywords to use
@@ -202,7 +219,8 @@ def main():
     number = eval(input("Please input the number of words to use"))
 
     directory_in = input("Please input the directory holding the corpus of information")
-    print(get_overall_values_only(file_in, number, directory_in))
+    pp(get_overall_values_only(file_in, number, directory_in))
+
 
 
 if __name__ == "__main__":
