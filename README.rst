@@ -6,7 +6,8 @@ To install diarmaidi2xpackage, clone this repository, and go into the folder and
 To Use
 ------
 
-import diarmaidi2xpackage gives you the following commands
+import diarmaidi2xpackage gives you the following commands:
+
 create_words_and_values
 +++++++++++++++++++++++
 This takes in a file name, reads in the file, and creates a list of (key-word, value) pairs for each keyword in the file.
