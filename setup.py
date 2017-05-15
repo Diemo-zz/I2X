@@ -6,7 +6,7 @@ def readme():
 
 setup(name='diarmaidi2xpackage',
       version='0.1',
-      description='The funniest joke in the world',
+      description='A package for i2x code challenge',
       long_description=readme(),
       url='https://github.com/Diemo-zz/I2X',
       author='Diarmaid de Búrca',
