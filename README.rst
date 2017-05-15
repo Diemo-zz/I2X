@@ -20,7 +20,8 @@ the file you want to analyse, and save_file is the path to the file you want to 
 To get the top keywords, use run 'dp.top_values(dict_in, n)', where dict_in is the output of create_words_and_values,
 and n is the number of key-words to get. This will return a list of the top n keywords.
 
-To compare a set of keywords to a file, run 'dp.compare(keywords_in, file_in), where key-words is the list of
+To compare a set of keywords to a file, run 'dp.compare(keywords_in, file_in), where key-words is the list of words to
+compare and file_in is the path to the file to compare it with. This will return a list,
 
 create_words_and_values
 +++++++++++++++++++++++

@@ -29,7 +29,7 @@ class TestTus(unittest.TestCase):
         self.write_file(list)
 
 
-        gotten = cwv.get_lemitized_words_in_order('testFile')
+        gotten = cwv.get_lemitized_words_in_order('testfile')
 
         self.remove_file()
 
