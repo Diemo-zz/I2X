@@ -1,4 +1,3 @@
-import nltk
 import os
 import pickle
 from nltk import word_tokenize
@@ -6,14 +5,18 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 
-
-
-
 def get_keywords_and_values(words):
     """
-    This is where you rank the words. 
+    Takes in a list of words and calculates the weighted average of each one, two and three letter keyword in the list. 
+    Keywords of size two are weighted to be three times as as good as keywords of size one, and keywords of size three
+    are weighted to be five times as good as keywords of size one.
 
-    Currently words are ranked based on how often they occur. Keywords pf size two are and three are weighted to be higher the single keywords
+    :param words: list
+        list of words to calculate keywords from
+
+    :return: dict
+        key: keyword
+        value: weighted keyword value
     """
 
     d = {}
@@ -42,7 +45,14 @@ def get_keywords_and_values(words):
 
 
 def get_lemitized_words_in_order(file_in):
-    # We want to lemmatize words so that plurals etc. are counted as the same word
+    """
+
+    :param file_in: str
+        Path to the file to read in
+
+    :return: list
+        a list of all lemmitized words from the file
+    """
 
     lemmitizer = WordNetLemmatizer()
 
@@ -59,9 +69,15 @@ def get_lemitized_words_in_order(file_in):
 
 def create_words_and_values(file_in):
     """
-    Return the top n words in the database.
-    file_in is the path to the file, and n is the number of words to get
+
+    :param file_in: str
+        path to the file
+
+    :return: dict
+        key = word
+        value = calculated keyword value for that file
     """
+
     # Read all the words into a list
     words_in_order = get_lemitized_words_in_order(file_in)
 
@@ -72,21 +88,40 @@ def create_words_and_values(file_in):
 
 
 def save_words_and_values(file_in, save_file):
+    """
+
+
+    :param file_in: str
+        path to file to calculate words and values for
+    :param save_file: str
+        path to file to save the calculated word/value pairs
+
+    :return: null
+    """
     results = create_words_and_values(file_in)
 
     pickle.dump(results, open(save_file, 'wb'))
 
 
 def evaluate_file(file_in):
+    """
+    A function that takes in a file, calculates the values, and saves the resulting dictionary to a .pickle file with 
+    the same stem.
+    :param file_in: str
+        path to the file to evaluate
+    :return: 
+    """
 
-    save_file = os.path.join(os.path.dirname(file_in), os.path.splitext(os.path.basename(file_in))[0]+".pickle")
+    save_file = os.path.join(os.path.dirname(file_in), os.path.splitext(os.path.basename(file_in))[0] + ".pickle")
     print("Calculating values from", file_in, " and saving list to ", save_file)
 
     save_words_and_values(file_in, save_file)
 
+
 def main():
     file_in = input("Please input the file to create the list from")
     evaluate_file(file_in)
+
 
 if __name__ == "__main__":
     main()
