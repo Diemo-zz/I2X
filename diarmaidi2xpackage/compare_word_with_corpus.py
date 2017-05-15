@@ -3,7 +3,7 @@ import pickle
 from collections import Counter
 from operator import itemgetter
 
-from diarmaidi2xpackage import create_words_and_values
+from diarmaidi2xpackage import create_words_and_values, save_words_and_values
 
 
 def get_all_txt_files_in_directory(directoryIn):
@@ -135,7 +135,7 @@ def evaluate_corpus(word_file_in, number_of_words_in, directory_in):
     :return:
      val: list
         Overall weighted average for all files.   Each element in the list is a word/value pair. The list is sorted, with higher values first.
-    file_val: dict
+     file_val: dict
         Holds the values for each file
             key: filename
             Value: list
@@ -169,6 +169,32 @@ def get_overall_values_only(word_file_in, number_of_words_in, directory_in):
     """
     val, file_val = evaluate_corpus(word_file_in, number_of_words_in, directory_in)
     return val
+
+def run(file_in, number_of_words_in, directory_in):
+    """
+    
+    :param file_in: str
+        path of the file to get keywords from
+    :param number_of_words_in: integer
+        number of keywords to use
+    :param directory_in: str
+        path to directory to use. It will compare the keywords to each '.txt' file in the directory
+    :return: 
+    val: list
+        Overall weighted average for all files.   Each element in the list is a word/value pair. The list is sorted, with higher values first.
+    file_val: dict
+        Holds the values for each file
+        key: filename
+        Value: list
+            Weighted average for each word
+    
+    """
+    savefile = file_in+".pickle"
+    save_words_and_values(file_in, savefile)
+
+    overall_val, file_val = evaluate_corpus(savefile, number_of_words_in,directory_in)
+
+    return overall_val, file_val
 
 
 def main():
