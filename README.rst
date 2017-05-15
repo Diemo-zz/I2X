@@ -3,7 +3,10 @@ Package Info
 
 To install diarmaidi2xpackage, clone this repository, and go into the folder and run 'pip install .'. This will install diarmaidi2xpacakge together with the requirements to your system. 
 
+To Use
+------
 
+import diarmaidi2xpackage gives you the following commands
 create_words_and_values
 +++++++++++++++++++++++
 This takes in a file name, reads in the file, and creates a list of (key-word, value) pairs for each keyword in the file.
@@ -50,7 +53,9 @@ To install nltk manually, you can run
 <sudo> pip install nltk
 
 The requirements are the nltk datasets: "punkt", "stopwords", and "wordnet". If these fail to download them you can install them manually by opening a python shell and running
-import nltk
-nltk.download(<datasetname>)
+
+>>>import nltk
+>>>nltk.download(<datasetname>)
+
 e.g.
-nltk.download("punkt")
+>>>nltk.download("punkt")
