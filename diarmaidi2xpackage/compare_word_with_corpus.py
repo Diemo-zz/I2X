@@ -3,7 +3,7 @@ import pickle
 from collections import Counter
 from operator import itemgetter
 
-from first_package_structure import create_words_and_values
+from diarmaidi2xpackage import create_words_and_values
 
 
 def get_all_txt_files_in_directory(directoryIn):
@@ -38,7 +38,8 @@ def compare_single_file(words_in, file_in):
     overall_value = {}
     for word in words_in:
         k = 100 * results.get(word, 0) / s
-        overall_value[word] = overall_value.get(word, 0.0) + k
+        print(k,s)
+        overall_value[word] = k
     return Counter(overall_value)
 
 
@@ -53,6 +54,7 @@ def compare_file_list(words_in, files_in):
     file_values ={}
 
     for file in files_in:
+
             values_out=compare_single_file(words_in,file)
             overall_value=overall_value+values_out
             file_values[file] =sorted(values_out.items(), key=itemgetter(1), reverse=True)

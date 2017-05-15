@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from first_package_structure import create_word_value as cwv
+from diarmaidi2xpackage import create_word_value as cwv
 
 
 class TestTus(unittest.TestCase):

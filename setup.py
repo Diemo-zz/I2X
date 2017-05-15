@@ -4,7 +4,7 @@ def readme():
     with open('README.rst') as f:
         return f.read()
 
-setup(name='first_package_structure',
+setup(name='diarmaidi2xpackage',
       version='0.1',
       description='The funniest joke in the world',
       long_description=readme(),
@@ -12,7 +12,7 @@ setup(name='first_package_structure',
       author='Diarmaid de Búrca',
       author_email='diarmaiddeburca@gmail.com',
       license='MIT',
-      packages=['first_package_structure'],
+      packages=['diarmaidi2xpackage'],
       install_requires=[
           'nltk',
       ],
