@@ -56,6 +56,6 @@ The requirements are the nltk datasets: "punkt", "stopwords", and "wordnet". If 
 
 >>>import nltk
 
->>>nltk.download(<dataset
+>>>nltk.download(<dataset>)
 
 >>>nltk.download("punkt")
