@@ -4,7 +4,7 @@ Package Info
 To install diarmaidi2xpackage, clone this repository. Enter the I2X folder and run 'pip install .'. This will install
 the diarmaidi2xpackage, together with it's requirements.
 
-You can run tests by 'python3 setup.py test'.
+You can run tests by running 'python3 setup.py test'.
 
 To Use
 ------
