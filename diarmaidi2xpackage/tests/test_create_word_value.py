@@ -61,7 +61,7 @@ class TestTus(unittest.TestCase):
         expected['two three']= 3.0
         expected['one two three']=5.0
         gotten = cwv.create_words_and_values(self.fileName)
-        print(gotten)
+
         self.remove_file()
 
         self.assertEquals(expected, gotten)

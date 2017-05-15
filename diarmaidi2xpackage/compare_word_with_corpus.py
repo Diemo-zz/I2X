@@ -38,7 +38,6 @@ def compare_single_file(words_in, file_in):
     overall_value = {}
     for word in words_in:
         k = 100 * results.get(word, 0) / s
-        print(k,s)
         overall_value[word] = k
     return Counter(overall_value)
 

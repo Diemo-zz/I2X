@@ -41,7 +41,6 @@ class Test_compare_word_value(unittest.TestCase):
 
         file = open(self.compare_file, 'w')
 
-        print(string_to_write)
         file.write(string_to_write)
 
         file.close()
