@@ -55,7 +55,7 @@ To install nltk manually, you can run
 The requirements are the nltk datasets: "punkt", "stopwords", and "wordnet". If these fail to download them you can install them manually by opening a python shell and running
 
 >>>import nltk
->>>nltk.download(<datasetname>)
 
-e.g.
+>>>nltk.download(<dataset
+
 >>>nltk.download("punkt")
